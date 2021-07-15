@@ -6,6 +6,8 @@ import cors from 'cors';
 import categories from './category/router';
 import items from './item/router';
 
+const PORT = process.env.PORT || 3000;
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -23,4 +25,4 @@ app.use(/^(?!\/api\/)/, (req, res) => {
 app.use('/api/categories', categories);
 app.use('/api/items', items);
 
-app.listen(3000, () => console.log('Server started on http://localhost:3000'));
+app.listen(PORT, () => console.log('Server started on http://localhost:3000'));
