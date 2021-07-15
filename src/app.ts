@@ -1,3 +1,6 @@
+/* eslint-disable function-paren-newline */
+/* eslint-disable @typescript-eslint/comma-dangle */
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-console */
 import path from 'path';
 import express from 'express';
@@ -6,7 +9,7 @@ import cors from 'cors';
 import categories from './category/router';
 import items from './item/router';
 
-const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -25,4 +28,6 @@ app.use(/^(?!\/api\/)/, (req, res) => {
 app.use('/api/categories', categories);
 app.use('/api/items', items);
 
-app.listen(PORT, () => console.log('Server started on http://localhost:3000'));
+app.listen(process.env.PORT || 5000, () =>
+  console.log('Server started on http://localhost:3000')
+);
